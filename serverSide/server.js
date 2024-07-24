@@ -6,7 +6,7 @@ const lyricsFinder = require("lyrics-finder");
 const SpotifyWebApi = require("spotify-web-api-node");
 
 const app = express();
-const PORT = process.env.PORT || 3001; // Default to port 3001 if PORT is not set in .env
+const PORT = process.env.PORT || 3001; 
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -26,8 +26,8 @@ app.post("/refresh", (req, res) => {
     .refreshAccessToken()
     .then(data => {
       res.json({
-        accessToken: data.body.access_token, // Fixed typo: accessToken -> access_token
-        expiresIn: data.body.expires_in, // Fixed typo: expiresIn -> expires_in
+        accessToken: data.body.access_token, 
+        expiresIn: data.body.expires_in, 
       });
     })
     .catch(err => {
@@ -60,16 +60,7 @@ app.post("/login", (req, res) => {
     });
 });
 
-// Route to fetch lyrics
-app.get("/lyrics", async (req, res) => {
-  try {
-    const lyrics = (await lyricsFinder(req.query.artist, req.query.track)) || "No Lyrics Found";
-    res.json({ lyrics });
-  } catch (err) {
-    console.error('Error fetching lyrics', err);
-    res.sendStatus(500);
-  }
-});
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
