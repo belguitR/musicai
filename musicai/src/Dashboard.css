@@ -1,0 +1,144 @@
+html, body {
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 1rem;
+}
+
+.playlist-sidebar {
+    width: 250px;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+    padding-right: 10px;
+    background-color: #000000;
+    border-right: 1px solid #444;
+    color: #ffffff;
+    animation: slide-in 0.5s ease-out;
+}
+
+.track-list {
+    flex-grow: 1;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+    background-color: #000000;
+    color: #ffffff;
+    animation: fade-in 0.5s ease-out;
+}
+
+.search-bar {
+    border-radius: 20px;
+    border: 1px solid #444;
+    background-color: #000000;
+    color: #ffffff;
+    padding-left: 15px;
+}
+
+.playing-track {
+    animation: pulse 1s infinite;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    padding: 1rem;
+    border-top: 1px solid #444;
+}
+
+.control-button {
+    background-color: #1db954;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.control-button:hover {
+    background-color: #1ed760;
+}
+
+.control-button:disabled {
+    background-color: #3e3e3e;
+    cursor: not-allowed;
+}
+
+.card {
+    background-color: #000000;
+    border: 1px solid #444;
+    border-radius: 10px;
+    color: #ffffff;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    color: #ffffff;
+}
+
+.card-title {
+    color: #ffffff;
+}
+
+.card-text {
+    color: #cccccc;
+}
+
+h5 {
+    color: #ffffff;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
